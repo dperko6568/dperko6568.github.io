@@ -10,5 +10,4 @@ Ovo je jednostavna GitHub Pages stranica koja koristi Jekyll i temu **minima**.
    ```
 3. Otvori [http://localhost:4000](http://localhost:4000).
 
-## Live verzija
-[https://tvoje-korisnicko-ime.github.io/moja-stranica/](https://tvoje-korisnicko-ime.github.io/moja-stranica/)
+

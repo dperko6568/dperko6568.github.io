@@ -3,22 +3,66 @@ layout: default
 title: GISzona
 ---
 
-<h1>Dobrodošli na GISzona.net</h1>
+<!-- Home Page Full-Screen StoryMap -->
 
-<p>
-Ovdje možete vidjeti ArcGIS StoryMap hidrogeoloških istraživanja na Baniji nakon potresa. 
-Diplomski rad je na linku 
-<a href="https://zir.nsk.hr/object/rgn:2153" target="_blank">https://zir.nsk.hr/object/rgn:2153</a>
-</p>
-
-<!-- Direktni iframe (umjesto includea) -->
-<div class="storymap-container">
+<div class="storymap-fullscreen">
   <iframe 
       src="https://storymaps.arcgis.com/stories/3b6c1ec44b7946d79fc035de95e5b4a3?cover=false&header=false" 
-      width="100%" 
-      height="900px" 
       frameborder="0" 
       allowfullscreen 
       allow="geolocation">
   </iframe>
+
+  <!-- Overlay tekst (po želji) -->
+  <div class="storymap-text">
+    <h1>Dobrodošli na GISzona.net</h1>
+    <p>
+      Ovdje možete vidjeti ArcGIS StoryMap hidrogeoloških istraživanja na Baniji nakon potresa. 
+      Diplomski rad je na linku 
+      <a href="https://zir.nsk.hr/object/rgn:2153" target="_blank">
+        https://zir.nsk.hr/object/rgn:2153
+      </a>
+    </p>
+  </div>
 </div>
+
+<style>
+/* Full-screen StoryMap container */
+.storymap-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 100% visine viewporta */
+    overflow: hidden;
+}
+
+.storymap-fullscreen iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Overlay tekst preko karte */
+.storymap-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0,0,0,0.5); /* poluprozirna pozadina za bolju čitljivost */
+    padding: 15px;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.storymap-text h1 {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+}
+
+.storymap-text p {
+    margin: 0;
+    font-size: 1.1em;
+}
+</style>

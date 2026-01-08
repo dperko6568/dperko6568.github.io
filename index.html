@@ -3,7 +3,7 @@ layout: default
 title: GISzona
 ---
 
-<!-- Home Page Full-Screen StoryMap -->
+<!-- Full-Screen StoryMap s overlay tekstom -->
 
 <div class="storymap-fullscreen">
   <iframe 
@@ -13,7 +13,7 @@ title: GISzona
       allow="geolocation">
   </iframe>
 
-  <!-- Overlay tekst (po želji) -->
+  <!-- Overlay tekst -->
   <div class="storymap-text">
     <h1>Dobrodošli na GISzona.net</h1>
     <p>
@@ -49,11 +49,17 @@ title: GISzona
     position: absolute;
     top: 20px;
     left: 20px;
-    color: white;
-    background: rgba(0,0,0,0.5); /* poluprozirna pozadina za bolju čitljivost */
+    color: white; /* bijeli tekst */
+    background: rgba(0,0,0,0.5); /* poluprozirna pozadina */
     padding: 15px;
     max-width: 600px;
     border-radius: 8px;
+}
+
+/* Linkovi unutar overlay-a */
+.storymap-text a {
+    color: #ffd700; /* zlatna/žuta, ističe se na plavoj karti */
+    text-decoration: underline;
 }
 
 .storymap-text h1 {

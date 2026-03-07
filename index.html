@@ -78,21 +78,28 @@
 <p>© giszona.net</p>
 </footer>
 <script>
-    // Inicijalizacija s malom zadrškom da budemo sigurni da je DOM spreman
     window.onload = function() {
         var map = L.map('map', {
-            zoomControl: true,
+            zoomControl: false, 
             scrollWheelZoom: false
         }).setView([45.813, 15.977], 13);
 
-  // DGU Ortofoto 2023/2024
-var dguOrto = L.tileLayer.wms("https://geoportal.dgu.hr/services/inspire/orthophoto_2023_2024/wms", {
-    layers: 'OI.OrthoImagery',
-    format: 'image/png',
-    transparent: true,
-    version: '1.3.0',
-    attribution: '© Državna geodetska uprava'
-}).addTo(map);
+        // CartoDB Voyager - Modernija i čišća verzija OSM-a
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors © CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        // Dodajmo marker na Zagreb s popupom
+        var marker = L.marker([45.815, 15.9819]).addTo(map);
+        marker.bindPopup("<b>GISzona.net</b><br>Zagreb, Hrvatska").openPopup();
+
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 500);
+    };
+</script>
      // Ako želiš da karta bude malo tamnija (da tekst još bolje iskoči), 
 // možeš dodati CSS filter direktno na kontejner karte:
 // #map { filter: brightness(0.8) saturate(1.2); }

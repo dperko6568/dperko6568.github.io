@@ -78,19 +78,24 @@
 <p>© giszona.net</p>
 </footer>
 <script>
-    // Inicijalizacija karte na Zagreb
-    var map = L.map('map', {
-        zoomControl: false, // Mičemo kontrole da izgleda čišće kao hero image
-        scrollWheelZoom: false 
-    }).setView([45.813, 15.977], 13);
+    // Inicijalizacija s malom zadrškom da budemo sigurni da je DOM spreman
+    window.onload = function() {
+        var map = L.map('map', {
+            zoomControl: true,
+            scrollWheelZoom: false
+        }).setView([45.813, 15.977], 13);
 
-    // DGU Ortofoto servis
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-}).addTo(map);
+        // Koristit ćemo OpenStreetMap za test - ako on radi, onda je do DGU servisa
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
 
-    // Opcionalno: Ako želiš dodati i granice grada ili nešto drugo, samo dodaj novi layer ovdje
+        // Ovaj red rješava problem "sivog pravokutnika" nakon učitavanja
+        setTimeout(function(){ map.invalidateSize()}, 400);
+    };
 </script>
+
+    
   
 </body>
 </html>

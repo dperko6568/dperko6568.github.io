@@ -123,3 +123,27 @@ padding:30px;
 background:#222;
 color:white;
 }
+
+/* Logo stil s drugom bojom za .net */
+.logo span {
+    color: #3f8f3f;
+    font-weight: bold;
+}
+
+/* Manji gumbi unutar kartica */
+.cta-small {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #3f8f3f;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Slike unutar kartica */
+.card-image {
+    border-radius: 8px 8px 0 0;
+    margin: -25px -25px 15px -25px; /* Poništava padding kartice za sliku do ruba */
+}

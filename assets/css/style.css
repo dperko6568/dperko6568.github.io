@@ -28,14 +28,14 @@ color:#333;
   background:
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url("https://geoportal.dgu.hr/services/inspire/orthophoto
-    _2017/wms?
-    SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=OI.Ortho
-    imageCoverage&STYLES=&CRS=EPSG:3857&BBOX=1840000,5708000
-    ,1872000,5740000&WIDTH=1600&HEIGHT=900&FORMAT=image/png&
-    TRANSPARENT=FALSE");
+    _2017/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=OI.Orthoi
+    mageCoverage&STYLES=&CRS=EPSG:3857&BBOX=1840000,5708000,1
+    872000,5740000&WIDTH=1600&HEIGHT=900&FORMAT=image/png&TRA
+    NSPARENT=FALSE");
 
   background-size: cover;
   background-position: center;
+}
   color: white;
   text-align: center;
 }

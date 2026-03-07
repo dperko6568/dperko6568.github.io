@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GISzona - GIS projekti i edukacija</title>
 <link rel="stylesheet" href="assets/css/style.css">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
 </head>
 <body>
 
@@ -22,10 +24,10 @@
 </header>
 
 <section class="hero">
-<div class="hero-text">
-<h1>GIS projekti, edukacija i konzultacije</h1>
-<p>StoryMaps, WebGIS, konverzije DXF/DWG/Shp, GeoPDF/GeoTIFF, MultiKML i QGIS edukacija.</p>
-<a class="cta" href="kontakt.html">Zatraži konzultacije</a>
+<div id="map"></div> <div class="hero-text">
+        <h1>GIS projekti, edukacija i konzultacije</h1>
+        <p>StoryMaps, WebGIS, konverzije DXF/DWG/Shp, GeoPDF/GeoTIFF, MultiKML i QGIS edukacija.</p>
+        <a class="cta" href="kontakt.html">Zatraži konzultacije</a>
 </div>
 </section>
 
@@ -75,6 +77,23 @@
 <footer>
 <p>© giszona.net</p>
 </footer>
+<script>
+    // Inicijalizacija karte na Zagreb
+    var map = L.map('map', {
+        zoomControl: false, // Mičemo kontrole da izgleda čišće kao hero image
+        scrollWheelZoom: false 
+    }).setView([45.813, 15.977], 13);
 
+    // DGU Ortofoto servis
+    var dguOrto = L.tileLayer.wms("https://geoportal.dgu.hr/services/inspire/orthophoto_2023_2024/wms", {
+        layers: 'OI.OrthoImagery',
+        format: 'image/png',
+        transparent: true,
+        attribution: '© DGU'
+    }).addTo(map);
+
+    // Opcionalno: Ako želiš dodati i granice grada ili nešto drugo, samo dodaj novi layer ovdje
+</script>
+  
 </body>
 </html>

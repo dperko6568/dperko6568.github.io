@@ -33,7 +33,7 @@ height: 420px;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 420px; /* Radije stavi fiksnu visinu za test */
     z-index: 1; /* Karta ide u pozadinu */
 }
 

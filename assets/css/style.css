@@ -4,7 +4,17 @@ font-family: Arial, sans-serif;
 margin:0;
 background:#f4f6f8;
 }
+/* Stil za logo */
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333; /* Tamno siva za 'giszona' */
+}
 
+/* Stil specifično za .net dio */
+.logo span {
+    color: #3f8f3f; /* Tvoja prepoznatljiva zelena boja */
+}
 .nav{
 display:flex;
 justify-content:space-between;

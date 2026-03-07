@@ -123,7 +123,7 @@ padding:30px;
 background:#222;
 color:white;
 }
-/* Stil za pulsirajuću točku */
+/* Stil za pulsirajuću točku - precizno centrirano */
 .leaflet-pulsing-icon {
     border-radius: 100%;
     box-shadow: 0 0 0 0 rgba(63, 143, 63, 0.7);
@@ -131,6 +131,9 @@ color:white;
     width: 12px;
     position: absolute;
     background: #3f8f3f;
+    /* Ovo osigurava da je centar točke na koordinatama */
+    margin-left: -6px; 
+    margin-top: -6px;
     animation: pulsing 2s infinite;
 }
 

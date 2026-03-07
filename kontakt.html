@@ -18,71 +18,64 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 </header>
-
 <section class="about" style="max-width: 600px; margin: 50px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
     <h2>Kontaktirajte me</h2>
     <p>Imate li pitanje o GIS projektima ili trebate konzultacije? Pošaljite poruku putem forme ispod.</p>
 
- <form action="https://formspree.io/f/xwvrppak" method="POST">
- <form id="my-form" action="https://formspree.io/f/xwvrppak" method="POST">
-    <label>Vaše ime: <input type="text" name="name" required></label>
-    <label>Vaš e-mail: <input type="email" name="email" required></label>
-    <label>Poruka: <textarea name="message" required></textarea></label>
-    
-    <button type="submit" id="my-form-button">Pošalji poruku</button>
-    <p id="my-form-status"></p> </form>
-     
-    <label style="display: block; margin-bottom: 10px;">Vaše ime:
-        <input type="text" name="name" required style="width: 100%; padding: 8px; margin-top: 5px;">
-    </label>
+    <form id="contact-form" action="https://formspree.io/f/xwvrppak" method="POST" style="display: flex; flex-direction: column; gap: 15px; text-align: left; margin-top: 20px;">
+        <label>Vaše ime:
+            <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        
+        <label>Vaš e-mail:
+            <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        
+        <label>Poruka:
+            <textarea name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;"></textarea>
+        </label>
 
-    <label style="display: block; margin-bottom: 10px;">Vaš e-mail:
-        <input type="email" name="email" required style="width: 100%; padding: 8px; margin-top: 5px;">
-    </label>
-
-    <label style="display: block; margin-bottom: 10px;">Poruka:
-        <textarea name="message" required style="width: 100%; padding: 8px; margin-top: 5px; height: 100px;"></textarea>
-    </label>
-
-    <button type="submit" class="cta" style="width: 100%; cursor: pointer;">Pošalji poruku</button>
-</form>
+        <button type="submit" class="cta" style="width: 100%; padding: 12px; cursor: pointer; border: none; font-size: 16px;">Pošalji poruku</button>
+        <p id="form-status" style="margin-top: 10px; text-align: center; font-weight: bold;"></p>
+    </form>
 </section>
 
-<footer>
-    <p>© giszona.net</p>
-</footer>
 <script>
-  var form = document.getElementById("my-form");
-  
-  async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("my-form-status");
-    var data = new FormData(event.target);
-    
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        // AKO JE USPJEŠNO - VODI NA TVOJU STRANICU
-        window.location.href = "hvala.html";
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-          } else {
-            status.innerHTML = "Ups! Došlo je do problema pri slanju.";
-          }
-        })
-      }
-    }).catch(error => {
-      status.innerHTML = "Ups! Došlo je do problema pri povezivanju sa serverom.";
-    });
-  }
-  form.addEventListener("submit", handleSubmit)
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+      
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // USPJEH: Vodi na tvoju stranicu hvala.html
+          window.location.href = "hvala.html";
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.style.color = "red";
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+            } else {
+              status.style.color = "red";
+              status.innerHTML = "Ups! Došlo je do problema pri slanju.";
+            }
+          })
+        }
+      }).catch(error => {
+        status.style.color = "red";
+        status.innerHTML = "Došlo je do greške pri povezivanju sa serverom.";
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
 </script>
+
 </body>
 </html>

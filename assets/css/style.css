@@ -20,18 +20,32 @@ color:#333;
 }
 
 hero{
-height:420px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-url('https://tile.openstreetmap.org/12/2182/1387.png');
-background-size:cover;
-color:white;
-text-align:center;
+height: 420px;
+    position: relative; /* Važno za pozicioniranje teksta preko karte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Karta ide u pozadinu */
+}
 
+.hero-text {
+    position: relative;
+    z-index: 2; /* Tekst ide iznad karte */
+    background: rgba(0, 0, 0, 0.45); /* Tamna podloga da tekst bude čitljiv */
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
 .hero h1{
 font-size:40px;
 }

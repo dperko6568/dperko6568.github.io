@@ -28,6 +28,25 @@ background:white;
 box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Osigurava da polja u formi budu jedno ispod drugog i pune širine */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ključno za Edge da polja ne "pobjegnu" van ekrana */
+}
 .nav a{
 margin-left:15px;
 text-decoration:none;

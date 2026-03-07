@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-<meta charset="UTF-8">
-<title>Kontakt - GISzona</title>
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | GISzona</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -19,10 +19,27 @@
     </nav>
 </header>
 
-<section class="content">
-<h1>Kontakt</h1>
-<p>Email: kontakt@giszona.net</p>
+<section class="about" style="max-width: 600px; margin: 50px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h2>Kontaktirajte me</h2>
+    <p>Imate li pitanje o GIS projektima ili trebate konzultacije? Pošaljite poruku putem forme ispod.</p>
+
+    <form action="https://formspree.io/f/dperko.rgn@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 15px; text-align: left; margin-top: 20px;">
+        <label>Vaše ime:
+            <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        <label>Vaš e-mail:
+            <input type="email" name="_replyto" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        <label>Poruka:
+            <textarea name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: sans-serif;"></textarea>
+        </label>
+        <button type="submit" class="cta" style="border: none; cursor: pointer; width: 100%;">Pošalji poruku</button>
+    </form>
 </section>
+
+<footer>
+    <p>© giszona.net</p>
+</footer>
 
 </body>
 </html>

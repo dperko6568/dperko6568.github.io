@@ -85,11 +85,18 @@
             scrollWheelZoom: false
         }).setView([45.813, 15.977], 13);
 
-        // Koristit ćemo OpenStreetMap za test - ako on radi, onda je do DGU servisa
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-
+  // DGU Ortofoto 2023/2024
+var dguOrto = L.tileLayer.wms("https://geoportal.dgu.hr/services/inspire/orthophoto_2023_2024/wms", {
+    layers: 'OI.OrthoImagery',
+    format: 'image/png',
+    transparent: true,
+    version: '1.3.0',
+    attribution: '© Državna geodetska uprava'
+}).addTo(map);
+     // Ako želiš da karta bude malo tamnija (da tekst još bolje iskoči), 
+// možeš dodati CSS filter direktno na kontejner karte:
+// #map { filter: brightness(0.8) saturate(1.2); }
+     
         // Ovaj red rješava problem "sivog pravokutnika" nakon učitavanja
         setTimeout(function(){ map.invalidateSize()}, 400);
     };

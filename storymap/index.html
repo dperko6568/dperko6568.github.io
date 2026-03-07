@@ -1,74 +1,87 @@
----
-layout: default
-title: GISzona
----
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryMap Banija | GISzona</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
 
-<!-- Full-Screen StoryMap s overlay tekstom -->
+        /* Full-screen StoryMap container */
+        .storymap-fullscreen {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-<div class="storymap-fullscreen">
-  <iframe 
-      src="https://storymaps.arcgis.com/stories/3b6c1ec44b7946d79fc035de95e5b4a3?cover=false&header=false" 
-      frameborder="0" 
-      allowfullscreen 
-      allow="geolocation">
-  </iframe>
+        .storymap-fullscreen iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
-  <!-- Overlay tekst -->
-  <div class="storymap-text">
-   <h1>StoryMap o Baniji</h1>
-     <p> 
-      Ovdje možete vidjeti ArcGIS StoryMap hidrogeoloških istraživanja na Baniji nakon potresa. 
-      Diplomski rad je na linku 
-      <a href="https://repozitorij.rgn.unizg.hr/object/rgn:2153" target="_blank">
-        https://repozitorij.rgn.unizg.hr/object/rgn:2153
-      </a>
-    </p> 
-  </div>
-</div>
+        /* Gumb za povratak na početnu */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Stavio sam desno da ne smeta tekstu lijevo */
+            z-index: 1000;
+            background: #3f8f3f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
 
-<style>
-/* Full-screen StoryMap container */
-.storymap-fullscreen {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* 100% visine viewporta */
-    overflow: hidden;
-}
+        .back-btn:hover { background: #2e6b2e; }
 
-.storymap-fullscreen iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
+        /* Overlay tekst preko karte */
+        .storymap-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            background: rgba(0,0,0,0.65); /* Malo tamnije za bolju čitljivost */
+            backdrop-filter: blur(5px); /* Moderni efekt zamućenja */
+            padding: 20px;
+            max-width: 450px;
+            border-radius: 12px;
+            z-index: 500;
+        }
 
-/* Overlay tekst preko karte */
-.storymap-text {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: white; /* bijeli tekst */
-    background: rgba(0,0,0,0.5); /* poluprozirna pozadina */
-    padding: 10px;
-    max-width: 470px;
-    border-radius: 8px;
-}
+        .storymap-text a { color: #ffd700; text-decoration: underline; }
+        .storymap-text h1 { margin: 0 0 10px 0; font-size: 1.8em; }
+    </style>
+</head>
+<body>
 
-/* Linkovi unutar overlay-a */
-.storymap-text a {
-    color: #ffd700; /* zlatna/žuta, ističe se na plavoj karti */
-    text-decoration: underline;
-}
+    <a href="../index.html" class="back-btn">← Natrag na početnu</a>
 
-.storymap-text h1 {
-    margin: 0 0 10px 0;
-    font-size: 2em;
-}
+    <div class="storymap-fullscreen">
+        <iframe 
+            src="https://storymaps.arcgis.com/stories/3b6c1ec44b7946d79fc035de95e5b4a3?cover=false&header=false" 
+            allowfullscreen 
+            allow="geolocation">
+        </iframe>
 
-.storymap-text p {
-    margin: 0;
-    font-size: 1.1em;
-}
-</style>
+        <div class="storymap-text">
+            <h1>StoryMap o Baniji</h1>
+            <p> 
+                Ovdje možete vidjeti ArcGIS StoryMap hidrogeoloških istraživanja na Baniji nakon potresa. 
+                Diplomski rad je na linku 
+                <a href="https://repozitorij.rgn.unizg.hr/object/rgn:2153" target="_blank">
+                    repozitorij.rgn.unizg.hr
+                </a>
+            </p> 
+        </div>
+    </div>
+
+</body>
+</html>

@@ -4,16 +4,21 @@ font-family: Arial, sans-serif;
 margin:0;
 background:#f4f6f8;
 }
-/* Stil za logo */
+/* Osigurava da je .net zelen na svim stranicama */
 .logo {
     font-weight: bold;
     font-size: 24px;
-    color: #333; /* Tamno siva za 'giszona' */
+    color: #333;
+}
+.logo span {
+    color: #3f8f3f;
 }
 
-/* Stil specifično za .net dio */
-.logo span {
-    color: #3f8f3f; /* Tvoja prepoznatljiva zelena boja */
+/* Stil za naslove stranica */
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
 }
 .nav{
 display:flex;

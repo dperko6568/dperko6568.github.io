@@ -19,37 +19,33 @@ text-decoration:none;
 color:#333;
 }
 
-hero{
-height: 420px;
-    position: relative; /* Važno za pozicioniranje teksta preko karte */
+
+.hero {
+    height: 420px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-color: #ddd; /* Ovo je siva koju vidiš ako se tiles ne učitaju */
 }
 
 #map {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%; 
-    z-index: 1; /* Karta ide u pozadinu */
+    height: 420px; /* Eksplicitno ponovi visinu ovdje */
+    z-index: 1;
 }
 
 .hero-text {
     position: relative;
-    z-index: 2; /* Tekst ide iznad karte */
-    background: rgba(0, 0, 0, 0.45); /* Tamna podloga da tekst bude čitljiv */
-    padding: 30px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
+    z-index: 10; /* Mora biti znatno veći od karte */
+    pointer-events: none; /* Omogućuje da "prođeš" kroz tekst i skrolaš kartu mišem */
 }
-.hero h1{
-font-size:40px;
-}
-
 .cta{
 background:#3f8f3f;
 padding:12px 24px;

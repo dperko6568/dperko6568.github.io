@@ -24,7 +24,14 @@
     <p>Imate li pitanje o GIS projektima ili trebate konzultacije? Pošaljite poruku putem forme ispod.</p>
 
  <form action="https://formspree.io/f/xwvrppak" method="POST">
-     <input type="hidden" name="_next" value="https://giszona.net/hvala.html">
+ <form id="my-form" action="https://formspree.io/f/xwvrppak" method="POST">
+    <label>Vaše ime: <input type="text" name="name" required></label>
+    <label>Vaš e-mail: <input type="email" name="email" required></label>
+    <label>Poruka: <textarea name="message" required></textarea></label>
+    
+    <button type="submit" id="my-form-button">Pošalji poruku</button>
+    <p id="my-form-status"></p> </form>
+     
     <label style="display: block; margin-bottom: 10px;">Vaše ime:
         <input type="text" name="name" required style="width: 100%; padding: 8px; margin-top: 5px;">
     </label>
@@ -44,6 +51,38 @@
 <footer>
     <p>© giszona.net</p>
 </footer>
-
+<script>
+  var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        // AKO JE USPJEŠNO - VODI NA TVOJU STRANICU
+        window.location.href = "hvala.html";
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+          } else {
+            status.innerHTML = "Ups! Došlo je do problema pri slanju.";
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Ups! Došlo je do problema pri povezivanju sa serverom.";
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
 </body>
 </html>

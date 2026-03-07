@@ -91,17 +91,18 @@
         }).addTo(map);
 
        // Kreiranje pulsirajuće ikone s definiranim sidrom
-var pulsingIcon = L.divIcon({
+/*var pulsingIcon = L.divIcon({
     className: 'leaflet-pulsing-icon',
     iconSize: [12, 12],
     iconAnchor: [6, 6] // Ovo spušta točku točno na koordinate
 });
+*/
 
 // Dodavanje markera na lokaciju (Zagreb)
-var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
+//var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
 
         // Popup koji se otvara na klik
-        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
+//        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
 
         // Osvježi veličinu
         setTimeout(function() { map.invalidateSize(); }, 500);

@@ -90,15 +90,16 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Kreiranje pulsirajuće ikone
-        var pulsingIcon = L.divIcon({
-            className: 'leaflet-pulsing-icon',
-            iconSize: [12, 12]
-        });
+       // Kreiranje pulsirajuće ikone s definiranim sidrom
+var pulsingIcon = L.divIcon({
+    className: 'leaflet-pulsing-icon',
+    iconSize: [12, 12],
+    iconAnchor: [6, 6] // Polovica širine i visine za savršeno centriranje
+});
 
-        // Dodavanje markera na lokaciju (Zagreb Centar)
-        var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
-        
+// Dodavanje markera
+var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
+     
         // Popup koji se otvara na klik
         marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
 

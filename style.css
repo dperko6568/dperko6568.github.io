@@ -27,6 +27,12 @@ body {
     font-weight: 500;
 }
 
+/* OVDJE UBACI OVO ZA ZELENI TEKST */
+.green-text {
+    color: #3f8f3f;
+    font-weight: bold; /* Dodao sam bold da se .net bolje ističe */
+}
+
 /* --- HERO SEKCIJA --- */
 .hero {
     min-height: 400px;

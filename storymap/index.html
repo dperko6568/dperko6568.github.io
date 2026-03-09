@@ -1,53 +1,54 @@
-<!DOCTYPE html>
-<html lang="hr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoryMap Banija - GISzona</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        body, html { height: 100%; margin: 0; overflow: hidden; }
-        /* Osiguravamo da container za kartu zauzima ostatak ekrana */
-        .storymap-container { 
-            width: 100%; 
-            height: calc(100vh - 70px); 
-            border: none; 
-        }
-        /* Ako tvoj include generira iframe, ovo ga rasteže */
-        .storymap-container iframe { width: 100%; height: 100%; border: none; }
-    </style>
-</head>
-<body>
-    <nav class="nav">
-        <div class="logo"><strong>giszona</strong><span class="green-text">.net</span></div>
-        <div class="links">
-            <a href="../index.html">Početna</a>
-            <a href="../projekti.html">Projekti</a>
-            <a href="../blog.html">Blog</a>
-            <a href="../resources.html">Resources</a>
-        </div>
-    </nav>
+---
+layout: default
+title: StoryMap Banija
+---
 
-    <div class="storymap-info-box" id="infoBox">
-        <button class="toggle-btn" id="toggleBtn">−</button>
-        <h2 style="margin-top:0; font-size:18px;">Hidrogeološka istraživanja - Banija</h2>
-        <div id="boxContent">
-            <p>ArcGIS StoryMap diplomskog rada izrađenog nakon potresa na Banovini.</p>
-            <p><strong>Diplomski rad:</strong> 
-                <a href="https://zir.nsk.hr/object/rgn:2153" target="_blank" style="color: #4CAF50; text-decoration: underline;">Pogledaj na ZIR-u</a>
-            </p>
-        </div>
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<style>
+    /* Popravak za tamni box jer se stilovi nekad ne povuku dobro */
+    .storymap-info-box {
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        width: 320px;
+        background: rgba(0, 0, 0, 0.85) !important; /* Forsiramo tamnu boju */
+        color: white !important;
+        padding: 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .storymap-info-box p, .storymap-info-box h2 { color: white !important; }
+    
+    .storymap-container { 
+        width: 100%; 
+        height: calc(100vh - 70px); 
+        margin-top: 0;
+    }
+</style>
+
+<div class="storymap-info-box" id="infoBox">
+    <button class="toggle-btn" id="toggleBtn" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">−</button>
+    <h2 style="margin-top:0; font-size:18px;">Hidrogeološka istraživanja - Banija</h2>
+    <div id="boxContent">
+        <p>ArcGIS StoryMap diplomskog rada izrađenog nakon potresa na Banovini.</p>
+        <p><strong>Diplomski rad:</strong> 
+            <a href="https://zir.nsk.hr/object/rgn:2153" target="_blank" style="color: #4CAF50; text-decoration: underline;">Pogledaj na ZIR-u</a>
+        </p>
     </div>
+</div>
 
-    <div class="storymap-container">
-        {% include storymap.html %}
-    </div>
+<div class="storymap-container">
+    {% include storymap.html %}
+</div>
 
-    <script>
-        const btn = document.getElementById('toggleBtn');
-        const box = document.getElementById('infoBox');
-        const content = document.getElementById('boxContent');
+<script>
+    const btn = document.getElementById('toggleBtn');
+    const box = document.getElementById('infoBox');
+    const content = document.getElementById('boxContent');
 
+    if (btn) {
         btn.addEventListener('click', function() {
             if (box.classList.contains('minimized-box')) {
                 box.classList.remove('minimized-box');
@@ -59,6 +60,5 @@
                 btn.innerHTML = "+";
             }
         });
-    </script>
-</body>
-</html>
+    }
+</script>

@@ -108,6 +108,28 @@
     };
 </script>
       
-  
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('toggle-box');
+        if (btn) { // Provjera postoji li gumb na ovoj stranici
+            const box = btn.parentElement; 
+            const contents = box.querySelectorAll('p, a, img, h2'); 
+
+            btn.addEventListener('click', function() {
+                box.classList.toggle('minimized-box');
+                btn.innerHTML = box.classList.contains('minimized-box') ? '+' : '−';
+                
+                // Sakrij/prikaži sve osim gumba
+                contents.forEach(el => {
+                    if (el.id !== 'toggle-box') {
+                        el.style.display = box.classList.contains('minimized-box') ? 'none' : 'block';
+                    }
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>  
 </body>
 </html>

@@ -76,37 +76,33 @@
 <p>© giszona.net</p>
 </footer>
 
- <script>
+<script>
     window.onload = function() {
+        // Karta je sada interaktivna (postavljeno na true)
         var map = L.map('map', {
-            zoomControl: false,
-            scrollWheelZoom: false
+            zoomControl: true,
+            scrollWheelZoom: true,
+            dragging: true
         }).setView([45.813, 15.977], 13);
 
-        // OSM Podloga (CartoDB Voyager za čišći izgled)
+        // OSM Podloga
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-       // Kreiranje pulsirajuće ikone s definiranim sidrom
-/*var pulsingIcon = L.divIcon({
-    className: 'leaflet-pulsing-icon',
-    iconSize: [12, 12],
-    iconAnchor: [6, 6] // Ovo spušta točku točno na koordinate
-});
-*/
+        // Marker je sada aktivan i vidljiv
+        var marker = L.marker([45.815, 15.9819]).addTo(map);
 
-// Dodavanje markera na lokaciju (Zagreb)
-//var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
+        // Popup koji vodi na kontakt stranicu
+        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
 
-        // Popup koji se otvara na klik
-//        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
-
-        // Osvježi veličinu
-        setTimeout(function() { map.invalidateSize(); }, 500);
+        // Popravak prikaza nakon učitavanja
+        setTimeout(function() { 
+            map.invalidateSize(); 
+        }, 500);
     };
 </script>
-      
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const btn = document.getElementById('toggle-box');

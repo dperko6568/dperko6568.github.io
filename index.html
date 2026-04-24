@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GISzona | GIS projekti i edukacija</title>
-    <!-- Google Fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com" />
-    <!-- Tvoj CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <header class="navbar">
-    <div class="container">
+    <div class="container nav-container">
         <a href="index.html" class="logo">
             <img src="assets/img/favicon.png" alt="Logo">
             <span>giszona<b class="green-text">.net</b></span>
         </a>
-        <nav class="nav-links">
+        
+        <!-- Hamburger ikona za mobitele -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="nav-links">
             <a href="index.html">Početna</a>
             <a href="projekti.html">Projekti</a>
             <a href="radovi.html">Radovi</a>
@@ -77,13 +82,14 @@
     <p>© 2024 <strong>giszona.net</strong> | Zagreb, Hrvatska</p>
 </footer>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com"></script>
 <script>
+    // 1. LEAFLET MAPA
     document.addEventListener('DOMContentLoaded', function() {
         var map = L.map('map', {
             zoomControl: false,
-            scrollWheelZoom: false
+            scrollWheelZoom: false,
+            dragging: !L.Browser.mobile
         }).setView([45.813, 15.977], 13);
 
         L.tileLayer('https://{s}://{z}/{x}/{y}{r}.png', {
@@ -91,12 +97,17 @@
         }).addTo(map);
 
         L.circleMarker([45.813, 15.977], {
-            radius: 10,
-            fillColor: "#3f8f3f",
-            color: "#fff",
-            weight: 3,
-            fillOpacity: 0.9
+            radius: 10, fillColor: "#3f8f3f", color: "#fff", weight: 3, fillOpacity: 0.9
         }).addTo(map);
+
+        // 2. HAMBURGER MENU LOGIKA
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+        });
     });
 </script>
 

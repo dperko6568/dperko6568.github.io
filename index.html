@@ -78,30 +78,31 @@
 
 <script>
     window.onload = function() {
-        // Karta je sada interaktivna (postavljeno na true)
+        // Centrirano na RGN (Pierottijeva 6) s malo jačim zoomom (15)
         var map = L.map('map', {
             zoomControl: true,
             scrollWheelZoom: true,
             dragging: true
-        }).setView([45.813, 15.977], 13);
+        }).setView([45.807, 15.966], 15);
 
-        // OSM Podloga
+        // OSM Podloga (CartoDB Voyager)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Marker je sada aktivan i vidljiv
-        var marker = L.marker([45.815, 15.9819]).addTo(map);
+        // Marker postavljen točno na koordinate fakulteta
+        var marker = L.marker([45.807, 15.966]).addTo(map);
 
-        // Popup koji vodi na kontakt stranicu
-        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
+        // Popup s informacijama i linkom na tvoj kontakt
+        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Pierottijeva 6<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
 
-        // Popravak prikaza nakon učitavanja
+        // Osigurava da se karta pravilno raširi preko cijelog hero dijela
         setTimeout(function() { 
             map.invalidateSize(); 
         }, 500);
     };
 </script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -111,3 +111,45 @@ body {
     .card { width: 100%; max-width: 320px; }
     .storymap-info-box { width: 80%; left: 10%; top: 120px; }
 }
+
+/* --- STIL ZA ZNANSTVENE RADOVE --- */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.paper-item {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #3f8f3f; /* Tvoja zelena boja */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.paper-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.paper-item a:hover {
+    color: #3f8f3f;
+}
+
+.paper-meta {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.pdf-link {
+    color: #e74c3c !important; /* Crvena za PDF */
+    font-weight: normal !important;
+    font-size: 0.85rem !important;
+    display: inline !important;
+    margin-left: 10px;
+}

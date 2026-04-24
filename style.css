@@ -122,7 +122,7 @@ body {
 .paper-item {
     background: white;
     padding: 20px;
-    margin-bottom: 50px; !important; /* Dodajemo !important da budemo sigurni */
+    margin-bottom: 50px !important; /* Dodajemo !important da budemo sigurni */
     border-radius: 8px;
     border-left: 5px solid #3f8f3f; /* Tvoja zelena boja */
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);

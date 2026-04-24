@@ -1,32 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog - GISzona</title>
-<link rel="stylesheet" href="assets/css/style.css">
+    <title>Znanstveni radovi - GISzona</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <header class="nav">
     <div class="logo" style="display: flex; align-items: center;">
-        <img src="../assets/img/favicon.png" alt="Logo" style="height: 30px; width: auto; margin-right: 8px;">
+        <img src="assets/img/favicon.png" alt="Logo" style="height: 30px; width: auto; margin-right: 8px;">
         <strong>giszona</strong><span class="green-text">.net</span>
     </div>
-
     <nav>
-        <a href="../index.html">Početna</a>
-        <a href="../projekti.html">Projekti</a>
-        <a href="../radovi.html">Znanstveni radovi</a>
-        <a href="../resources.html">Resources</a>
-        <a href="../kontakt.html">Kontakt</a>
+        <a href="index.html">Početna</a>
+        <a href="projekti.html">Projekti</a>
+        <a href="radovi.html">Znanstveni radovi</a>
+        <a href="resources.html">Resources</a>
+        <a href="kontakt.html">Kontakt</a>
     </nav>
 </header>
 
 <section class="content">
-<h1>GIS u znanosti</h1>
-<p>Odabrani znanstveni radovi</p>
+    <h1>GIS u znanosti</h1>
+    <p>Popis objavljenih znanstvenih radova i istraživanja.</p>
+
+    <div class="papers-list">
+        <!-- Primjer rada s linkom na časopis i PDF -->
+        <div class="paper-item">
+            <a href="https://srce.hr" target="_blank">Naslov znanstvenog rada na portalu Hrčak</a>
+            <div class="paper-meta">
+                Hrvatski geografski glasnik (2023) 
+                <a href="assets/pdf/rad1.pdf" class="pdf-link" target="_blank">[Preuzmi PDF]</a>
+            </div>
+        </div>
+
+        <!-- Primjer rada samo s eksternim linkom -->
+        <div class="paper-item">
+            <a href="https://doi.org" target="_blank">Naslov rada u međunarodnom časopisu (DOI link)</a>
+            <div class="paper-meta">International Journal of GIS (2022)</div>
+        </div>
+        
+        <!-- Dodaj ostale radove ovdje... -->
+    </div>
 </section>
 
 </body>

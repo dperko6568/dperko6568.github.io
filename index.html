@@ -1,115 +1,139 @@
+o
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GISzona | GIS projekti i edukacija</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com" />
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GISzona - GIS projekti i edukacija</title>
+ <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet" href="assets/css/style.css">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
 </head>
 <body>
 
-<header class="navbar">
-    <div class="container nav-container">
-        <a href="index.html" class="logo">
-            <img src="assets/img/favicon.png" alt="Logo">
-            <span>giszona<b class="green-text">.net</b></span>
-        </a>
-        
-        <!-- Hamburger ikona za mobitele -->
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="nav-links" id="nav-links">
-            <a href="index.html">Početna</a>
-            <a href="projekti.html">Projekti</a>
-            <a href="radovi.html">Radovi</a>
-            <a href="resources.html">Resources</a>
-            <a href="kontakt.html" class="btn-kontakt">Kontakt</a>
-        </nav>
-    </div>
+<header class="nav">
+ <div class="logo" style="display: flex; align-items: center;">
+    <img src="assets/img/favicon.png" alt="Logo" style="height: 30px; width: auto; margin-right: 8px;">
+    <strong>giszona</strong><span class="green-text">.net</span>
+</div>
+    <nav>
+        <a href="index.html">Početna</a>
+        <a href="projekti.html">Projekti</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <span class="badge">GIS & Geodata rješenja</span>
-        <h1>Pretvorite podatke u <span class="green-text">pametne karte</span></h1>
-        <p>Specijalizirane usluge za WebGIS, StoryMaps, konverzije podataka (CAD/GIS) i individualnu QGIS edukaciju.</p>
-        <div class="hero-actions">
-            <a href="kontakt.html" class="cta-primary">Zatraži konzultacije</a>
-            <a href="#usluge" class="cta-secondary">Istraži više</a>
-        </div>
-    </div>
-    <div id="map" class="hero-map"></div>
+<div id="map"></div> <div class="hero-text">
+        <h1>GIS projekti, baze podataka, edukacija i konzultacije</h1>
+        <p>StoryMaps, WebGIS, konverzije DXF/DWG/Shp, GeoPDF/GeoTIFF, MultiKML i QGIS edukacija.</p>
+        <a class="cta" href="kontakt.html">Zatraži konzultacije</a>
+</div>
 </section>
 
-<section id="usluge" class="services">
-    <div class="container">
-        <div class="section-header">
-            <h2>Naše usluge</h2>
-            <p>Profesionalna obrada i vizualizacija prostornih podataka.</p>
-        </div>
-        <div class="grid-cards">
-            <div class="card">
-                <div class="card-icon">🗺️</div>
-                <h3>StoryMaps & WebGIS</h3>
-                <p>Interaktivne prezentacije i online GIS aplikacije za vaše projekte.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">📐</div>
-                <h3>DXF / Shapefile</h3>
-                <p>Precizna konverzija CAD i GIS podataka bez gubitka atributa.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">📄</div>
-                <h3>GeoPDF / GeoTIFF</h3>
-                <p>Izrada georeferenciranih dokumenata za rad na terenu.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🎓</div>
-                <h3>QGIS Edukacija</h3>
-                <p>Individualni tečajevi i konzultacije prilagođeni vašim potrebama.</p>
-            </div>
-        </div>
-    </div>
+<section class="projects">
+<h2>Istaknuti projekti</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>StoryMaps</h3>
+<p>Interaktivne GIS priče.</p>
+</div>
+
+<div class="card">
+<h3>WebGIS</h3>
+<p>Online GIS aplikacije.</p>
+</div>
+
+<div class="card">
+<h3>DXF / Shapefile</h3>
+<p>Konverzije CAD i GIS podataka.</p>
+</div>
+
+<div class="card">
+<h3>GeoPDF / GeoTIFF</h3>
+<p>Digitalne karte i georeferencirani dokumenti.</p>
+</div>
+
+<div class="card">
+<h3>MultiKML</h3>
+<p>Integracija s Google Maps.</p>
+</div>
+
+</div>
 </section>
 
-<footer class="footer">
-    <p>© 2024 <strong>giszona.net</strong> | Zagreb, Hrvatska</p>
+<section class="about">
+<h2>O meni</h2>
+<p>Stručnjak za geoinformacijske sustave i baze podataka</p>
+</section>
+
+<section class="cta-section">
+<h2>Trebate pomoć oko GIS projekta?</h2>
+<a class="cta" href="kontakt.html">Zatraži konzultacije</a>
+</section>
+
+<footer>
+<p>© giszona.net</p>
 </footer>
 
-<script src="https://unpkg.com"></script>
-<script>
-    // 1. LEAFLET MAPA
-    document.addEventListener('DOMContentLoaded', function() {
+ <script>
+    window.onload = function() {
         var map = L.map('map', {
             zoomControl: false,
-            scrollWheelZoom: false,
-            dragging: !L.Browser.mobile
+            scrollWheelZoom: false
         }).setView([45.813, 15.977], 13);
 
-        L.tileLayer('https://{s}://{z}/{x}/{y}{r}.png', {
-            attribution: '© OpenStreetMap'
+        // OSM Podloga (CartoDB Voyager za čišći izgled)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        L.circleMarker([45.813, 15.977], {
-            radius: 10, fillColor: "#3f8f3f", color: "#fff", weight: 3, fillOpacity: 0.9
-        }).addTo(map);
+       // Kreiranje pulsirajuće ikone s definiranim sidrom
+/*var pulsingIcon = L.divIcon({
+    className: 'leaflet-pulsing-icon',
+    iconSize: [12, 12],
+    iconAnchor: [6, 6] // Ovo spušta točku točno na koordinate
+});
+*/
 
-        // 2. HAMBURGER MENU LOGIKA
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
+// Dodavanje markera na lokaciju (Zagreb)
+//var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.classList.toggle('open');
-        });
-    });
+        // Popup koji se otvara na klik
+//        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
+
+        // Osvježi veličinu
+        setTimeout(function() { map.invalidateSize(); }, 500);
+    };
 </script>
+      
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('toggle-box');
+        if (btn) { // Provjera postoji li gumb na ovoj stranici
+            const box = btn.parentElement; 
+            const contents = box.querySelectorAll('p, a, img, h2'); 
 
+            btn.addEventListener('click', function() {
+                box.classList.toggle('minimized-box');
+                btn.innerHTML = box.classList.contains('minimized-box') ? '+' : '−';
+                
+                // Sakrij/prikaži sve osim gumba
+                contents.forEach(el => {
+                    if (el.id !== 'toggle-box') {
+                        el.style.display = box.classList.contains('minimized-box') ? 'none' : 'block';
+                    }
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>  
 </body>
 </html>

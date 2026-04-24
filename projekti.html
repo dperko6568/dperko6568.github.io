@@ -8,26 +8,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header class="navbar">
-    <div class="container nav-container">
-        <a href="index.html" class="logo">
-            <img src="assets/img/favicon.png" alt="Logo">
-            <span>giszona<b class="green-text">.net</b></span>
-        </a>
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <span></span><span></span><span></span>
-        </button>
-        <nav class="nav-links" id="nav-links">
-            <a href="index.html">Početna</a>
-            <a href="projekti.html">Projekti</a>
-            <a href="radovi.html">Radovi</a>
-            <a href="resources.html">Resources</a>
-            <a href="kontakt.html" class="btn-kontakt">Kontakt</a>
-        </nav>
-    </div>
+
+<header class="nav">
+    <div class="logo" style="display: flex; align-items: center;">
+        <img src="assets/img/favicon.png" alt="Logo" style="height: 30px; width: auto; margin-right: 8px;">
+        <strong>giszona</strong><span class="green-text">.net</span>
+    </div> <nav> <a href="index.html">Početna</a>
+        <a href="projekti.html">Projekti</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
 </header>
-
-
 
 <section class="projects">
     <h1>Moji projekti</h1>
@@ -60,14 +52,6 @@
 <footer>
     <p>© giszona.net</p>
 </footer>
-<script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('nav-links');
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuBtn.classList.toggle('open');
-    });
-</script>
 
 </body>
 </html>

@@ -1,0 +1,113 @@
+/* --- OSNOVNE POSTAVKE --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+}
+
+/* --- NAVIGACIJA (Ujednačena i responzivna) --- */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* OVDJE UBACI OVO ZA ZELENI TEKST */
+.green-text {
+    color: #3f8f3f;
+    font-weight: bold; /* Dodao sam bold da se .net bolje ističe */
+}
+
+/* --- HERO SEKCIJA --- */
+.hero {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+    url('https://tile.openstreetmap.org/12/2182/1387.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 { font-size: clamp(24px, 6vw, 40px); margin-bottom: 10px; }
+
+/* --- KARTICE I PROJEKTI --- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* --- STORYMAP MINIMIZE BOX STIL --- */
+.storymap-info-box {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #3f8f3f;
+    border: none;
+    color: white;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.minimized-box {
+    height: 40px !important;
+    width: 180px !important;
+    overflow: hidden !important;
+    padding: 10px !important;
+}
+
+/* --- MOBILNA PRILAGODBA (iPhone) --- */
+@media (max-width: 768px) {
+    .nav { flex-direction: column; gap: 10px; text-align: center; }
+    .nav a { margin: 5px 10px; font-size: 16px; }
+    .card { width: 100%; max-width: 320px; }
+    .storymap-info-box { width: 80%; left: 10%; top: 120px; }
+}

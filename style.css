@@ -137,9 +137,18 @@ body {
     margin-bottom: 5px;
 }
 
+/* Ovo već imaš - mijenja boju naslova */
 .paper-item a:hover {
     color: #3f8f3f;
 }
+
+/* Ovo dodaj - pomiče cijelu karticu za bolji vizualni efekt */
+.paper-item:hover {
+    transform: translateY(-3px);
+    transition: transform 0.2s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Malo jača sjena dok je miš iznad */
+}
+
 
 .paper-meta {
     font-size: 0.9rem;

@@ -1,0 +1,139 @@
+o
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GISzona - GIS projekti i edukacija</title>
+ <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet" href="assets/css/style.css">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+</head>
+<body>
+
+<header class="nav">
+ <div class="logo" style="display: flex; align-items: center;">
+    <img src="assets/img/favicon.png" alt="Logo" style="height: 30px; width: auto; margin-right: 8px;">
+    <strong>giszona</strong><span class="green-text">.net</span>
+</div>
+    <nav>
+        <a href="index.html">Početna</a>
+        <a href="projekti.html">Projekti</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</header>
+
+<section class="hero">
+<div id="map"></div> <div class="hero-text">
+        <h1>GIS projekti, baze podataka, edukacija i konzultacije</h1>
+        <p>StoryMaps, WebGIS, konverzije DXF/DWG/Shp, GeoPDF/GeoTIFF, MultiKML i QGIS edukacija.</p>
+        <a class="cta" href="kontakt.html">Zatraži konzultacije</a>
+</div>
+</section>
+
+<section class="projects">
+<h2>Istaknuti projekti</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>StoryMaps</h3>
+<p>Interaktivne GIS priče.</p>
+</div>
+
+<div class="card">
+<h3>WebGIS</h3>
+<p>Online GIS aplikacije.</p>
+</div>
+
+<div class="card">
+<h3>DXF / Shapefile</h3>
+<p>Konverzije CAD i GIS podataka.</p>
+</div>
+
+<div class="card">
+<h3>GeoPDF / GeoTIFF</h3>
+<p>Digitalne karte i georeferencirani dokumenti.</p>
+</div>
+
+<div class="card">
+<h3>MultiKML</h3>
+<p>Integracija s Google Maps.</p>
+</div>
+
+</div>
+</section>
+
+<section class="about">
+<h2>O meni</h2>
+<p>Stručnjak za geoinformacijske sustave i baze podataka</p>
+</section>
+
+<section class="cta-section">
+<h2>Trebate pomoć oko GIS projekta?</h2>
+<a class="cta" href="kontakt.html">Zatraži konzultacije</a>
+</section>
+
+<footer>
+<p>© giszona.net</p>
+</footer>
+
+ <script>
+    window.onload = function() {
+        var map = L.map('map', {
+            zoomControl: false,
+            scrollWheelZoom: false
+        }).setView([45.813, 15.977], 13);
+
+        // OSM Podloga (CartoDB Voyager za čišći izgled)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+       // Kreiranje pulsirajuće ikone s definiranim sidrom
+/*var pulsingIcon = L.divIcon({
+    className: 'leaflet-pulsing-icon',
+    iconSize: [12, 12],
+    iconAnchor: [6, 6] // Ovo spušta točku točno na koordinate
+});
+*/
+
+// Dodavanje markera na lokaciju (Zagreb)
+//var marker = L.marker([45.815, 15.9819], {icon: pulsingIcon}).addTo(map);
+
+        // Popup koji se otvara na klik
+//        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Dizajn i edukacija<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
+
+        // Osvježi veličinu
+        setTimeout(function() { map.invalidateSize(); }, 500);
+    };
+</script>
+      
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('toggle-box');
+        if (btn) { // Provjera postoji li gumb na ovoj stranici
+            const box = btn.parentElement; 
+            const contents = box.querySelectorAll('p, a, img, h2'); 
+
+            btn.addEventListener('click', function() {
+                box.classList.toggle('minimized-box');
+                btn.innerHTML = box.classList.contains('minimized-box') ? '+' : '−';
+                
+                // Sakrij/prikaži sve osim gumba
+                contents.forEach(el => {
+                    if (el.id !== 'toggle-box') {
+                        el.style.display = box.classList.contains('minimized-box') ? 'none' : 'block';
+                    }
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>  
+</body>
+</html>

@@ -53,6 +53,14 @@
            <!-- Dodaj ostale radove ovdje... -->
     </div>
 </section>
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.classList.toggle('open');
+    });
+</script>
 
 </body>
 </html>

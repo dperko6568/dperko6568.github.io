@@ -237,4 +237,56 @@ color:white;
     }
 }
 </style>
+/* --- Sekcija za publikacije --- */
 
+.publications {
+    max-width: 850px;       /* Ograničava širinu da tekst ne ide od ruba do ruba */
+    margin: 40px auto;      /* Centrira cijelu sekciju i odvaja je od vrha/dna */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.paper-item {
+    margin-bottom: 30px;    /* Razmak između dva rada */
+    padding-left: 15px;
+    border-left: 3px solid #3498db; /* Plava crta s lijeve strane za ljepši izgled */
+}
+
+.paper-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-decoration: none;
+    line-height: 1.4;
+    display: inline-block;
+}
+
+.paper-title:hover {
+    color: #3498db;        /* Naslov poplavi kad prođeš mišem */
+    text-decoration: underline;
+}
+
+.paper-row.secondary {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;         /* Omogućava da časopis i PDF budu u istoj liniji */
+    align-items: center;
+    gap: 20px;             /* Razmak između naziva časopisa i linka za PDF */
+}
+
+.journal-name {
+    font-style: italic;
+}
+
+.pdf-link {
+    color: #e74c3c;        /* Crvena boja za PDF ikonu i tekst */
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;              /* Razmak između ikone i teksta "Preuzmi PDF" */
+}
+
+.pdf-link:hover {
+    color: #c0392b;        /* Tamnija crvena na hover */
+}

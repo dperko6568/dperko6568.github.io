@@ -19,7 +19,19 @@ body {
     top: 0;
     z-index: 9999;
 }
+/* --- LOGO (ujednačeno na svim stranicama) --- */
+.logo {
+    font-size: 24px;   /* zaključava veličinu svugdje */
+    font-weight: 700;
+    line-height: 1;
+}
 
+/* Micro-fix: sprječava da unutarnji elementi mijenjaju veličinu */
+.logo strong,
+.logo .green-text {
+    font-size: 1em;
+    line-height: 1;
+}
 .nav a {
     margin-left: 15px;
     text-decoration: none;

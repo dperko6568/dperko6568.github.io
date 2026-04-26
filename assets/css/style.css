@@ -180,62 +180,7 @@ color:white;
     border-radius: 8px 8px 0 0;
     margin: -25px -25px 15px -25px; /* Poništava padding kartice za sliku do ruba */
 }
-<style>
-.publications {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    font-family: sans-serif;
-}
 
-.paper-item {
-    margin-bottom: 30px; /* Ovo stvara onaj "prazan red" između radova */
-    border-bottom: 1px solid #eee; /* Opcionalno: tanka linija za bolju preglednost */
-    padding-bottom: 15px;
-}
-
-.paper-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.paper-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #0056b3;
-    text-decoration: none;
-}
-
-.paper-title:hover {
-    text-decoration: underline;
-}
-
-.journal-name {
-    font-style: italic;
-    color: #555;
-}
-
-.pdf-link {
-    color: #d9534f;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
-.pdf-link:hover {
-    color: #c9302c;
-}
-
-/* Prilagodba za mobitele - da se ne gužva u jednom redu */
-@media (max-width: 600px) {
-    .paper-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-</style>
 /* --- Sekcija za publikacije --- */
 
 .publications {
@@ -288,4 +233,57 @@ color:white;
 
 .pdf-link:hover {
     color: #c0392b;        /* Tamnija crvena na hover */
+}
+/* ===== STABILNI STIL ZA ZNANSTVENE RADOVE ===== */
+
+.publications {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.paper-item {
+  margin-bottom: 30px;
+  padding-left: 15px;
+  border-left: 3px solid #3498db;
+}
+
+.paper-row.primary {
+  margin-bottom: 4px;
+}
+
+.paper-row.secondary {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.paper-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.journal-name {
+  font-style: italic;
+  color: #555;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .paper-row.secondary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
 }

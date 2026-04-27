@@ -77,32 +77,62 @@
 </footer>
 
 <script>
-    window.onload = function() {
-        // Centrirano na RGN (Pierottijeva 6) s malo jačim zoomom (15)
-        var map = L.map('map', {
-            zoomControl: true,
-            scrollWheelZoom: true,
-            dragging: true
-        }).setView([45.807, 15.966], 15);
+window.onload = function () {
 
-        // OSM Podloga (CartoDB Voyager)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+  var map = L.map('map', {
+    zoomControl: true,
+    scrollWheelZoom: true,
+    dragging: true
+  });
 
-        // Marker postavljen točno na koordinate fakulteta
-        var marker = L.marker([45.807, 15.966]).addTo(map);
+  // Podloga (ista kao prije)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
 
-        // Popup s informacijama i linkom na tvoj kontakt
-        marker.bindPopup("<div style='text-align:center;'><b>GIS zona</b><br>Pierottijeva 6<br><a href='kontakt.html'>Kontaktiraj me</a></div>");
+  function onLocationFound(e) {
+    var radius = Math.round(e.accuracy);
 
-        // Osigurava da se karta pravilno raširi preko cijelog hero dijela
-        setTimeout(function() { 
-            map.invalidateSize(); 
-        }, 500);
-    };
+    // Marker trenutne lokacije
+    L.marker(e.latlng).addTo(map)
+      .bindPopup("Tvoja lokacija<br>Točnost ± " + radius + " m")
+      .openPopup();
+
+    // Krug točnosti
+    L.circle(e.latlng, radius).addTo(map);
+
+    map.setView(e.latlng, 18);
+
+    // Reverse geocoding – adresa
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${e.latitude}&lon=${e.longitude}`)
+      .then(r => r.json())
+      .then(data => {
+        const address = data.display_name || "Adresa nije pronađena";
+        L.popup()
+          .setLatLng(e.latlng)
+          .setContent("<b>Trenutna adresa:</b><br>" + address)
+          .openOn(map);
+      });
+  }
+
+  function onLocationError(e) {
+    alert("Lokacija nije dostupna: " + e.message);
+  }
+
+  map.on('locationfound', onLocationFound);
+  map.on('locationerror', onLocationError);
+
+  map.locate({
+    setView: true,
+    enableHighAccuracy: true,
+    maxZoom: 18
+  });
+
+  setTimeout(function () {
+    map.invalidateSize();
+  }, 500);
+};
 </script>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

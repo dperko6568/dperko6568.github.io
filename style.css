@@ -178,3 +178,15 @@ body {
     display: inline !important;
     margin-left: 10px;
 }
+/* Stil za footer na dnu stranice */
+footer {
+    padding: 15px 20px;
+    background-color: transparent; /* Da ne bude crne trake */
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;      /* Siva boja teksta */
+    text-align: left; /* Poravnanje lijevo kao na slici */
+}

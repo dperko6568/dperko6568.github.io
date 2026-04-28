@@ -150,12 +150,18 @@ padding:50px;
 text-align:center;
 }
 
-footer{
-text-align:center;
-padding:30px;
-background:#222;
-color:white;
+footer {
+    padding: 20px;
+    background: transparent;
 }
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+}
+
 
 /* Logo stil s drugom bojom za .net */
 .logo span {

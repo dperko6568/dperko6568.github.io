@@ -1,13 +1,17 @@
-/* --- OSNOVNE POSTAVKE --- */
+/* --- 1. OSNOVNE POSTAVKE --- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f4f6f8;
+    color: #333;
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Osigurava da footer može ići na dno */
 }
 
-/* --- NAVIGACIJA (Ujednačena i responzivna) --- */
+/* --- 2. NAVIGACIJA & LOGO --- */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -19,55 +23,32 @@ body {
     top: 0;
     z-index: 9999;
 }
-/* --- LOGO (ujednačeno na svim stranicama) --- */
+
 .logo {
-    font-size: 24px;   /* zaključava veličinu svugdje */
+    display: flex;
+    align-items: center;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 1;
 }
 
-/* Micro-fix: sprječava da unutarnji elementi mijenjaju veličinu */
-.logo strong,
-.logo .green-text {
-    font-size: 1em;
-    line-height: 1;
+.green-text {
+    color: #3f8f3f;
+    font-weight: bold;
 }
-.nav a {
+
+.nav nav a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* OVDJE UBACI OVO ZA ZELENI TEKST */
-.green-text {
+.nav nav a:hover {
     color: #3f8f3f;
-    font-weight: bold; /* Dodao sam bold da se .net bolje ističe */
 }
 
-/* --- HERO SEKCIJA --- */
-.hero {
-    position: relative;              /* KLJUČNO */
-    height: 420px;                    /* KLJUČNO */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding: 0;                       /* mapa ide edge‑to‑edge */
-    overflow: hidden;
-}
-#map {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero h1 { font-size: clamp(24px, 6vw, 40px); margin-bottom: 10px; }
-
-/* --- KARTICE I PROJEKTI --- */
+/* --- 3. KARTICE (Projekti) --- */
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -83,111 +64,72 @@ body {
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
-/* --- STORYMAP MINIMIZE BOX STIL --- */
-.storymap-info-box {
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    width: 300px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 1000;
-    transition: all 0.3s ease;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.toggle-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.card-image {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px 8px 0 0;
+    margin: -25px -25px 15px -25px;
+}
+
+.cta-small {
+    display: inline-block;
+    padding: 8px 15px;
     background: #3f8f3f;
-    border: none;
     color: white;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
+    text-decoration: none;
     border-radius: 4px;
-    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    border: none;
 }
 
-.minimized-box {
-    height: 40px !important;
-    width: 180px !important;
-    overflow: hidden !important;
-    padding: 10px !important;
-}
-
-/* --- MOBILNA PRILAGODBA (iPhone) --- */
-@media (max-width: 768px) {
-    .nav { flex-direction: column; gap: 10px; text-align: center; }
-    .nav a { margin: 5px 10px; font-size: 16px; }
-    .card { width: 100%; max-width: 320px; }
-    .storymap-info-box { width: 80%; left: 10%; top: 120px; }
-}
-
-/* --- STIL ZA ZNANSTVENE RADOVE --- */
-.content {
+/* --- 4. ZNANSTVENI RADOVI (Zajednički stilovi) --- */
+.publications, .content {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
+    flex: 1; /* Gura footer prema dolje ako ima malo sadržaja */
 }
 
 .paper-item {
     background: white;
     padding: 20px;
-    margin-bottom: 50px; !important; /* Dodajemo !important da budemo sigurni */
+    margin-bottom: 30px;
     border-radius: 8px;
-    border-left: 5px solid #3f8f3f; /* Tvoja zelena boja */
+    border-left: 5px solid #3f8f3f;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
 }
 
-.paper-item a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.1rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Ovo već imaš - mijenja boju naslova */
-.paper-item a:hover {
-    color: #3f8f3f;
-}
-
-/* Ovo dodaj - pomiče cijelu karticu za bolji vizualni efekt */
 .paper-item:hover {
     transform: translateY(-3px);
-    transition: transform 0.2s ease;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Malo jača sjena dok je miš iznad */
 }
 
-
-.paper-meta {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.pdf-link {
-    color: #e74c3c !important; /* Crvena za PDF */
-    font-weight: normal !important;
-    font-size: 0.85rem !important;
-    display: inline !important;
-    margin-left: 10px;
-}
+/* --- 5. FOOTER --- */
 footer {
-    background: none !important;      /* Briše crnu traku */
-    background-color: transparent !important; 
-    padding: 20px !important;
-    width: auto !important;           /* Da ne zauzima cijeli red ako ne treba */
+    padding: 20px 5%;
+    background: transparent;
+    margin-top: auto; /* Ključno za dno stranice */
 }
 
 footer p {
-    color: #333 !important;           /* Postavlja tekst u tamno sivu */
-    text-align: left !important;      /* Baca ga lijevo */
-    margin: 0 !important;
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    text-align: left;
 }
 
+/* --- 6. RESPONZIVNOST --- */
+@media (max-width: 768px) {
+    .nav { flex-direction: column; gap: 10px; text-align: center; }
+    .nav nav a { margin: 5px 10px; font-size: 16px; }
+    .card { width: 100%; max-width: 320px; }
+}

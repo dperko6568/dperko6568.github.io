@@ -1,17 +1,15 @@
-/* --- 1. OSNOVNE POSTAVKE --- */
+/* --- OSNOVNE POSTAVKE --- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f4f6f8;
     color: #333;
-    -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Osigurava da footer može ići na dno */
+    min-height: 100vh;
 }
 
-/* --- 2. NAVIGACIJA & LOGO --- */
+/* --- NAVIGACIJA I LOGO --- */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -28,27 +26,21 @@ body {
     display: flex;
     align-items: center;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .green-text {
     color: #3f8f3f;
-    font-weight: bold;
 }
 
-.nav nav a {
+.nav a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s;
 }
 
-.nav nav a:hover {
-    color: #3f8f3f;
-}
-
-/* --- 3. KARTICE (Projekti) --- */
+/* --- KARTICE I PROJEKTI --- */
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -63,13 +55,10 @@ body {
     width: 280px;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    box-sizing: border-box;
     transition: transform 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
 
 .card-image {
     height: 150px;
@@ -88,36 +77,21 @@ body {
     border-radius: 4px;
     font-size: 14px;
     margin-top: 10px;
-    border: none;
 }
 
-/* --- 4. ZNANSTVENI RADOVI (Zajednički stilovi) --- */
-.publications, .content {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex: 1; /* Gura footer prema dolje ako ima malo sadržaja */
+/* --- KONTAKT FORMA --- */
+form { display: flex; flex-direction: column; }
+form label { margin-bottom: 15px; font-weight: bold; }
+form input, form textarea {
+    width: 100%; padding: 10px; margin-top: 5px;
+    border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
 }
 
-.paper-item {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    border-left: 5px solid #3f8f3f;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease;
-}
-
-.paper-item:hover {
-    transform: translateY(-3px);
-}
-
-/* --- 5. FOOTER --- */
+/* --- FOOTER (Uvijek lijevo i sivo) --- */
 footer {
     padding: 20px 5%;
     background: transparent;
-    margin-top: auto; /* Ključno za dno stranice */
+    margin-top: auto;
 }
 
 footer p {
@@ -125,11 +99,4 @@ footer p {
     font-size: 14px;
     color: #666;
     text-align: left;
-}
-
-/* --- 6. RESPONZIVNOST --- */
-@media (max-width: 768px) {
-    .nav { flex-direction: column; gap: 10px; text-align: center; }
-    .nav nav a { margin: 5px 10px; font-size: 16px; }
-    .card { width: 100%; max-width: 320px; }
 }

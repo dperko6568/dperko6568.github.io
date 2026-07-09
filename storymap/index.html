@@ -12,18 +12,18 @@ layout: null
         /* Osnovni reset i layout */
         body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; font-family: Arial, sans-serif; }
         
-        /* Navigacija fiksne visine */
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            height: 60px;
-            position: relative;
-            z-index: 2000;
-        }
+       /* Navigacija fiksne visine */
+.nav {
+    display: flex;
+    justify-content: flex-start;  /* Sada je ispravljeno i linkovi su uz logotip */
+    align-items: center;
+    padding: 0 5%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 60px;
+    position: relative;
+    z-index: 2000;
+}
 
         /* Tamni info box - Forsirano crna pozadina */
         .storymap-info-box {

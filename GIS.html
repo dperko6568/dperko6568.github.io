@@ -34,12 +34,20 @@
             <a href="storymap/index.html" class="cta-small" style="background: #3f8f3f; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px;">Otvori projekt</a>
         </div>
 
-        <div class="card">
-            <div class="card-image" style="background-image: url('assets/img/webgis-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>
-            <h3>WebGIS Portali</h3>
-            <p>Interaktivne karte za vizualizaciju prostornih podataka u realnom vremenu.</p>
-            <span class="cta-small" style="background: #888; color: white; padding: 8px 15px; border-radius: 4px; display: inline-block; margin-top: 10px;">U pripremi</span>
-        </div>
+     <div class="card" style="transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+    <!-- Slika na vrhu kartice ostaje ista -->
+    <div class="card-image" style="background-image: url('assets/img/webgis-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>
+    
+    <h3>WebGIS Portali</h3>
+    <p style="margin-bottom: 15px;">Interaktivne karte za vizualizaciju prostornih podataka u realnom vremenu.</p>
+    
+    <!-- Ovdje ubacujemo 3 zasebna linka umjesto oznake "U pripremi" -->
+    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px; align-items: flex-start;">
+        <a href="https://qgiscloud.com/RAHELAL/projekt_START/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; font-size: 0.95rem;">🔗 Portal 1 - Naziv projekta</a>
+        <a href="https://rgnf.maps.arcgis.com/apps/instant/atlas/index.html?appid=f302c0cce6694e3092c55a8d5146d86d" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; font-size: 0.95rem;">🔗 Portal 2 - Naziv projekta</a>
+        <a href="https://rgnf.maps.arcgis.com/apps/instant/atlas/index.html?appid=f302c0cce6694e3092c55a8d5146d86d" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; font-size: 0.95rem;">🔗 Portal 3 - Naziv projekta</a>
+    </div>
+</div>
 
         <div class="card">
             <div class="card-image" style="background-image: url('assets/img/conversion-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>

@@ -6,6 +6,8 @@
     <title>Projekti | GISzona</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="/style.css">
+    <!-- FontAwesome ikone ako već nisu u style.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -13,12 +15,13 @@
     <div class="logo" style="display: flex; align-items: center;">
         <img src="assets/img/favicon.png" alt="Logo" style="height: 30px; width: auto; margin-right: 8px;">
         <strong>giszona</strong><span class="green-text">.net</span>
-    </div> <nav> <a href="index.html">Početna</a>
+    </div> 
+    <nav> 
+        <a href="index.html">Početna</a>
         <a href="GIS.html">GIS</a>
         <a href="databases.html">Baze podataka</a>
         <a href="znanstveni_radovi.html">Znanstveni radovi</a>
         <a href="kontakt.html">Kontakt</a>
-               
     </nav>
 </header>
 
@@ -27,6 +30,7 @@
     <p>Pregled izabranih GIS rješenja, StoryMap priča i tehničkih konverzija.</p>
     
     <div class="cards">
+        <!-- Kartica 1: StoryMap -->
         <div class="card">
             <div class="card-image" style="background-image: url('assets/img/banija-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>
             <h3>StoryMap Banija</h3>
@@ -34,60 +38,65 @@
             <a href="storymap/index.html" class="cta-small" style="background: #3f8f3f; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px;">Otvori projekt</a>
         </div>
 
-     <div class="card" style="transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-    <!-- Slika na vrhu kartice ostaje ista -->
-    <div class="card-image" style="background-image: url('assets/img/webgis-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>
-    
-    <h3>WebGIS Portali</h3>
-    <!--  PRIVREMENO NIJE AKTIVNO <p style="margin-bottom: 15px;">Interaktivne karte za vizualizaciju prostornih podataka u realnom vremenu.</p> -->
-    
-  
-<!-- WebGIS 1: Rahela Lucić -->
-<div class="paper-row secondary" style="margin-top: 10px;">
-    <a href="https://dabar.srce.hr/object/rgn:1813" target="_blank" class="paper-title">
-        Korištenje WebGIS sustava na primjeru stručne prakse RGN fakulteta
-    </a>
-    <div style="margin-top: 4px;">
-        <span class="journal-name">Završni rad Rahele Lucić, 2021.</span>
-        <a href="assets/pdf/lucic_rahela_rgn_2021_zavrsni_sveuc_.pdf" download class="pdf-link" style="margin-left: 10px;">
-            <i class="fas fa-file-pdf"></i> Preuzmi PDF
-        </a>
-        <a href="https://qgiscloud.com/RAHELAL/projekt_START/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin-left: 12px;">
-            🔗 WebGIS tvrtki projekta RGN START
-        </a>
-    </div>
-</div>
+        <!-- Kartica 2: WebGIS Portali -->
+        <div class="card" style="transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            <div class="card-image" style="background-image: url('assets/img/webgis-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>
+            
+            <h3 style="margin-bottom: 12px;">WebGIS Portali</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
+                <!-- WebGIS 1: Rahela Lucić -->
+                <div class="paper-row secondary" style="border-bottom: 1px dashed #e0e0e0; padding-bottom: 8px;">
+                    <a href="https://dabar.srce.hr/object/rgn:1813" target="_blank" class="paper-title" style="font-weight: 600; display: block; margin-bottom: 4px;">
+                        Korištenje WebGIS sustava na primjeru stručne prakse RGN fakulteta
+                    </a>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;">
+                        <span class="journal-name" style="color: #666; font-size: 0.82rem;">Završni rad R. Lucić, 2021.</span>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="assets/pdf/lucic_rahela_rgn_2021_zavrsni_sveuc_.pdf" download class="pdf-link" style="color: #dc2626; text-decoration: none;">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="https://qgiscloud.com/RAHELAL/projekt_START/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">
+                                🔗 WebGIS
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-<!-- WebGIS 2: Domagoj Grgurić -->
-<div class="paper-row secondary" style="margin-top: 12px;">
-    <a href="https://dabar.srce.hr/object/rgn:1061" target="_blank" class="paper-title">
-        Mapiranje eksploatacijskih polja mineralnih sirovina u Hrvatskoj u GIS tehnologiji
-    </a>
-    <div style="margin-top: 4px;">
-        <span class="journal-name">Diplomski rad Domagoja Grgurića, 2020.</span>
-        <a href="assets/pdf/grguric_domagoj_rgn_2020_diplomski_sveuc.pdf" download class="pdf-link" style="margin-left: 10px;">
-            <i class="fas fa-file-pdf"></i> Preuzmi PDF
-        </a>
-        <a href="https://resources-croatia.giscloud.com/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin-left: 12px;">
-            🔗 WebGIS eksploatacijskih polja mineralnih sirovina
-        </a>
-    </div>
-</div>
+                <!-- WebGIS 2: Domagoj Grgurić -->
+                <div class="paper-row secondary">
+                    <a href="https://dabar.srce.hr/object/rgn:1061" target="_blank" class="paper-title" style="font-weight: 600; display: block; margin-bottom: 4px;">
+                        Mapiranje eksploatacijskih polja mineralnih sirovina u Hrvatskoj u GIS tehnologiji
+                    </a>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;">
+                        <span class="journal-name" style="color: #666; font-size: 0.82rem;">Diplomski rad D. Grgurića, 2020.</span>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="assets/pdf/grguric_domagoj_rgn_2020_diplomski_sveuc.pdf" download class="pdf-link" style="color: #dc2626; text-decoration: none;">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="https://resources-croatia.giscloud.com/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">
+                                🔗 WebGIS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Ovde je nedostajao zatvoreni div za drugu karticu -->
 
-
-  <div class="card">
+        <!-- Kartica 3: Konverzije podataka -->
+        <div class="card">
             <div class="card-image" style="background-image: url('assets/img/conversion-thumb.jpg'); height: 150px; background-size: cover; background-position: center; border-radius: 8px 8px 0 0; margin: -25px -25px 15px -25px;"></div>
             <h3>Konverzije podataka</h3>
             
             <p style="line-height: 1.5; margin-bottom: 20px;">
                 FME Workbench,<br>
                 DWG &rarr; GEOTIFF/GML (vlastita konverzija),<br>
-                <!-- Ovdje samo dodajete nove redove, svaki mora završiti s <br> -->
                 Geotransformacije tabličnih podataka,<br>
                 Geotransformacije geoprostornih podataka,<br>
                 Treći novi kratki red
             </p>
         </div>
+    </div>
 </section>
 
 <footer>
